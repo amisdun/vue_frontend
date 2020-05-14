@@ -21,9 +21,8 @@
             <input type="password" v-model="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Enter Password">
             <span class="text-danger">{{error2}}</span>
             </div>
-            <div class="form-group">>
-            <select class="form-control form-control-lg" v-model="category">
-                <option :value="category" selected disabled></option>
+            <div class="form-group">
+            <select class="form-control form-control-lg" v-model="category" :value="category">
                 <option>Account Sector</option>
                 <option>Admission Sector</option>
             </select>
