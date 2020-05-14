@@ -22,7 +22,8 @@
             <span class="text-danger">{{error2}}</span>
             </div>
             <div class="form-group">
-            <select class="form-control form-control-lg" v-model="category" :value="category">
+            <select class="form-control form-control-lg" v-model="category" >
+                <option value="" disabled>Select Category</option>
                 <option>Account Sector</option>
                 <option>Admission Sector</option>
             </select>
