@@ -7,7 +7,7 @@
         <span class="text-danger alert alert-danger" v-show="failed">{{Login_failed}}</span>
                 <form>
             <div class="form-group">
-            <input type="username" v-model="username" class="form-control form-control-lg mt-5" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Email">
+            <input type="username" v-model="username" class="form-control form-control-lg mt-5" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Username">
             <span class="text-danger">{{error1}}</span>
             </div>
             <div class="form-group">
