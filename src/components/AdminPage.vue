@@ -21,9 +21,9 @@
             <input type="password" v-model="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Enter Password">
             <span class="text-danger">{{error2}}</span>
             </div>
-            <div class="form-group">
+            <div class="form-group">>
             <select class="form-control form-control-lg" v-model="category">
-                <option :value="Select Category" selected>Select Category</option>
+                <option :value="category" selected disabled></option>
                 <option>Account Sector</option>
                 <option>Admission Sector</option>
             </select>
@@ -53,7 +53,7 @@ export default {
             loading: false,
             username: "",
             password: "",
-            category: "",
+            category: "Select Category",
             user_signup: false,
             signup: "",
             res: ""
