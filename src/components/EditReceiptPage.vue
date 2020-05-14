@@ -144,6 +144,7 @@ export default {
                     this.res = "updated"
                     this.alert_show = true
                     this.alert = "new receipt updated successfully"
+this.$router.push({name: 'ShowReceipts'})
                 }
 
             } catch(error){

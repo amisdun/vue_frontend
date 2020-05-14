@@ -168,6 +168,7 @@ export default {
                         this.res = "updated"
                         this.alert_show = true
                         this.alert = "Admission letter updated successfully"
+                        this.$router.push({name: 'ShowAdmissionLetters'})
                     }
             } catch (error) {
                 if(error){
