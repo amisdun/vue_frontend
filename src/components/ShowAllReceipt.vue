@@ -55,8 +55,11 @@
 				this.$router.push({path: `/user/EditReceipt/${id}`})
 			}
 		},
-		async created(){
-				let receipt_token = localStorage.getItem("user_token")
+		created(){
+
+		},
+		mounted(){
+let receipt_token = localStorage.getItem("user_token")
 let category = localStorage.getItem("user_category")
 if(receipt_token == null){
 this.$router.push({name: "UserSignIn"})
@@ -65,19 +68,19 @@ if(category != "Account Sector"){
 this.$router.push({name: "UserSignIn"})
 }
 if(receipt_token != null && category == "Account Sector"){
-let all_receipts = await axios({
+axios({
 url: "http://agile-brook-14477.herokuapp.com/api/v1/receipt_template/index",
+// url: 'http://localhost:3000/api/v1/receipt_template/index',
 method: "GET",
 headers: {"Authorization": `Bearer ${receipt_token}`}
-})
+}).then(all_receipts => {
 if(all_receipts.data.data.length >= 1){
 this.all_receipts = [...all_receipts.data.data]
 console.log(this.all_receipts)
 }
-}
-		},
-		mounted(){
 
+})
+}
 		}
 	}
 </script>

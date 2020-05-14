@@ -65,6 +65,7 @@ export default {
          try {
              let login_responce = await axios({
                 url: "http://agile-brook-14477.herokuapp.com/api/v1/user_signin/create",
+                // url : 'http://localhost:3000/api/v1/user_signin/create',
                 method: "POST",
                 data: {username: username, password: password},
                 dataType: "JSON"

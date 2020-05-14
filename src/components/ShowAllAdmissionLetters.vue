@@ -57,8 +57,11 @@
 				this.$router.push({path: `/user/EditAdmission/${id}`})
 			}
 		},
-		async created(){
-				let letter_token = localStorage.getItem("user_token")
+ created(){
+
+		},
+		mounted(){
+let letter_token = localStorage.getItem("user_token")
 let category = localStorage.getItem("user_category")
 if(letter_token == null){
 this.$router.push({name: "UserSignIn"})
@@ -67,19 +70,19 @@ if(category != "Admission Sector"){
 this.$router.push({name: "UserSignIn"})
 }
 if(letter_token != null && category == "Admission Sector"){
-let all_letters = await axios({
+axios({
 url: "http://agile-brook-14477.herokuapp.com/api/v1/admission_template/index",
 method: "GET",
 headers: {"Authorization": `Bearer ${letter_token}`}
-})
+}).then(all_letters =>{
 if(all_letters.data.data.length >= 1){
 this.all_admission_letters = [...all_letters.data.data]
 console.log(this.all_admission_letters)
 }
-}
-		},
-		mounted(){
 
+
+})
+}
 		}
 	}
 </script>

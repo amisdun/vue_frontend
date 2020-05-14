@@ -30,7 +30,7 @@ const router = new VueRouter({
     {path: "/user/ShowReceipts" , name: "ShowReceipts", component: ShowReceipts},
     {path: "/user/ShowAdmissionLetters", name: "ShowAdmissionLetters", component: ShowAdmissionLetters}
   ],
-  mode: 'history'
+
 })
 
 Vue.config.productionTip = false
