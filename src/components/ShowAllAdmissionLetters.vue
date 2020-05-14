@@ -7,21 +7,21 @@
             </nav>
 
             <div class="row">
-			  <div class="col-sm-4" v-for="(letter,key) in all_admission_letters" :key="key">
-			    <div class="card mb-4 mt-3 ml-3">
-			      <div class="card-body" :id="letter.id">
-			        <h5 class="card-title">Admission Details</h5>
-			        <p class="card-text">Name: {{letter.student_name}}</p>
-			        <p class="card-text">Student ID: {{letter.student_number}}</p>
-			        <p class="card-text">Email: {{letter.email}}</p>
-			        <p class="card-text">Address: {{letter.student_address}}</p>
-			        <p class="card-text">Program Name: {{letter.program_name}}</p>
-			        <a href="#" class="btn btn-danger float-left" @click.prevent="delete_letter">Delete</a>
-			        <a href="#" class="btn btn-info float-right" @click.prevent="edit">Edit</a>
-			      </div>
-			    </div>
-			  </div>
-			</div>
+<div class="col-sm-4" v-for="(letter,key) in all_admission_letters" :key="key">
+    <div class="card mb-4 mt-3 ml-3">
+        <div class="card-body" :id="letter.id">
+            <h5 class="card-title">Admission Details</h5>
+            <p class="card-text">Name: {{letter.student_name}}</p>
+            <p class="card-text">Student ID: {{letter.student_number}}</p>
+            <p class="card-text">Email: {{letter.email}}</p>
+            <p class="card-text">Address: {{letter.student_address}}</p>
+            <p class="card-text">Program Name: {{letter.program_name}}</p>
+            <a href="#" class="btn btn-danger float-left" @click.prevent="delete_letter">Delete</a>
+            <a href="#" class="btn btn-info float-right" @click.prevent="edit">Edit</a>
+        </div>
+    </div>
+</div>
+</div>
 	</div>
 </template>
 
@@ -59,27 +59,24 @@
 		},
 		async created(){
 				let letter_token = localStorage.getItem("user_token")
-		        let category = localStorage.getItem("user_category")
-
-		        if(letter_token == null){
-		            this.$router.push({name: "UserSignIn"})
-		        }
-		        if(category != "Admission Sector"){
-		            this.$router.push({name: "UserSignIn"})
-		        }
-
-		        if(letter_token != null && category == "Admission Sector"){
-				        	let all_letters = await axios({
-				        	url: "http://agile-brook-14477.herokuapp.com/api/v1/admission_template/index",
-				        	method: "GET",
-				        	headers: {"Authorization": `Bearer ${letter_token}`}
-				        })
-
-				        if(all_letters.data.data.length >= 1){
-				        	this.all_admission_letters = [...all_letters.data.data]
-				        	console.log(this.all_admission_letters)
-				        }
-		        }
+let category = localStorage.getItem("user_category")
+if(letter_token == null){
+this.$router.push({name: "UserSignIn"})
+}
+if(category != "Admission Sector"){
+this.$router.push({name: "UserSignIn"})
+}
+if(letter_token != null && category == "Admission Sector"){
+let all_letters = await axios({
+url: "http://agile-brook-14477.herokuapp.com/api/v1/admission_template/index",
+method: "GET",
+headers: {"Authorization": `Bearer ${letter_token}`}
+})
+if(all_letters.data.data.length >= 1){
+this.all_admission_letters = [...all_letters.data.data]
+console.log(this.all_admission_letters)
+}
+}
 		},
 		mounted(){
 
