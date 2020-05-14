@@ -81,6 +81,8 @@ console.log(this.all_admission_letters)
 }
 
 
+}).catch(err => {
+	console.log(err)
 })
 }
 		}

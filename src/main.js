@@ -18,6 +18,7 @@ import ShowReceipts from "./components/ShowAllReceipt"
 Vue.use(VueRouter)
 
 const router = new VueRouter({
+mode: "history",
   routes: [
     {path: "/", name: "Home", component: Home},
     {path: "/admin", name: "Admin", component: Admin},
@@ -26,8 +27,8 @@ const router = new VueRouter({
     {path: "/user/ReceiptTemplate", name: "Receipt", component: Receipt},
     {path: "/user/AdmissionTemplate", name: "Admission", component: Admission},
     {path: "/user/EditReceipt/:id", name: "EditReceipt", component: EditReceipt},
-    {path: "/user/EditAdmission/:id", name: "EditAdmission", component: EditAdmission},
-    {path: "/user/ShowReceipts" , name: "ShowReceipts", component: ShowReceipts},
+    {path: "/user/EditAdmission/:id", name: "EditReceipt", component: EditAdmission},
+    {path:  "/user/ShowReceipts" , name: "ShowReceipts", component: ShowReceipts},
     {path: "/user/ShowAdmissionLetters", name: "ShowAdmissionLetters", component: ShowAdmissionLetters}
   ],
 

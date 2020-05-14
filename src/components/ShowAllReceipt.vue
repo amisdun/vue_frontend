@@ -79,6 +79,8 @@ this.all_receipts = [...all_receipts.data.data]
 console.log(this.all_receipts)
 }
 
+}).catch(err => {
+	console.log(err)
 })
 }
 		}
