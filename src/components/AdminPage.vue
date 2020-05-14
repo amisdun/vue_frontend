@@ -23,6 +23,7 @@
             </div>
             <div class="form-group">
             <select class="form-control form-control-lg" v-model="category">
+                <option :value="Select Category" selected>Select Category</option>
                 <option>Account Sector</option>
                 <option>Admission Sector</option>
             </select>
@@ -52,7 +53,7 @@ export default {
             loading: false,
             username: "",
             password: "",
-            category: "Select Category",
+            category: "",
             user_signup: false,
             signup: "",
             res: ""
