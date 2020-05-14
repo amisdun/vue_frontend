@@ -45,8 +45,8 @@
 				})
 
 				if(deleted.data.res === "deleted"){
-					location.reload()
-					let element = e.currentTarget.parentElement.parentElement.parentElement
+					let element = e.currentTarget.parentElement.parentElement
+					console.log(element)
 					element.remove()
 				}
 			},
